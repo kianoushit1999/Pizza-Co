@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import Button from "../../ui/Button";
+import ButtonLink from "../../ui/ButtonLink";
 
 // const fakeCart = [
 //   {
@@ -28,13 +29,13 @@ function Cart() {
   // const cart = fakeCart;
 
   return (
-    <div>
-      <Link to="/menu" className='text-blue-400 hover:text-blue-700 transition-all duration-300'>&larr; Back to menu</Link>
+    <div className="flex flex-col items-center gap-y-3 justify-center">
+      <ButtonLink to='/menu'> <span className="inline-block">&rarr;</span> Menu</ButtonLink>
 
       <h2>Your cart, %NAME%</h2>
 
-      <div>
-        <Link to="/order/new">Order pizzas</Link>
+      <div className="flex justify-around gap-x-12">
+        <Button to="/order/new">Order pizzas</Button>
         <button>Clear cart</button>
       </div>
     </div>

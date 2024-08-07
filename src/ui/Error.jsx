@@ -1,15 +1,15 @@
-import { useNavigate, useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router-dom';
+import ButtonLink from './ButtonLink';
 
 function NotFound() {
-  const navigate = useNavigate();
   const err = useRouteError()
   console.log(err)
 
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <h1>Something went wrong 😢</h1>
       <p>{err.message}</p>
-      <button onClick={() => navigate(-1)}>&larr; Go back</button>
+      <ButtonLink to={-1}>&larr; Go back</ButtonLink>
     </div>
   );
 }
