@@ -2,8 +2,8 @@ import CreateUser from "../features/user/CreateUser"
 
 function Home() {
   return (
-    <div className="text-centers my-10 sm:my-16">
-      <h1 className="text-xl font-semibold text-stone-700 mb-8  ">
+    <div className="text-center my-10 sm:my-16 md:text-2xl ">
+      <h1 className="font-semibold text-stone-700 mb-8  ">
         The best pizza.
         <br />
         <span className="text-yellow-500">Straight out of the oven, straight to you.</span>

@@ -3,7 +3,7 @@ import SearchOrder from "../features/order/SearchOrder";
 
 function Header() {
   return (
-    <header className="bg-yellow-500 px-4 py-3 uppercase border-b-2 sm:px-6 flex items-center justify-between border-stone-200">
+    <header className="md:text-xl bg-yellow-500 px-4 py-3 uppercase border-b-2 sm:px-6 flex items-center justify-between border-stone-200">
       <Link to="/" className="tracking-widest">
         <h1 className="font-extrabold"> FAST PIZZA.CO </h1>
       </Link>

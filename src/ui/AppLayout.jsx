@@ -13,7 +13,6 @@ function AppLayout() {
       {isLoading && <Loader />}
       <div className="">
         <main className="mx-auto max-w-3xl">
-          <h2>CONTENT</h2>
           <Outlet />
         </main>
       </div>
