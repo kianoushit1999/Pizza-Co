@@ -42,40 +42,51 @@ function CreateOrder() {
   const formErrors = useActionData();
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <h2>Ready to order? lets go!</h2>
+    <div className="flex flex-col gap-y-4 text-sm sm:text-base">
+      <h2 className="text-center sm:text-xl sm:font-semibold">
+        Ready to order? lets go!
+      </h2>
 
       <Form method="POST" className="flex flex-col gap-y-3">
-        <div>
-          <label>First Name</label>
-          <input type="text" name="customer" required className="input"/>
-        </div>
-
-        <div>
-          <label>Phone number</label>
-          <div>
-            <input type="tel" name="phone" required className="input" />
-            {formErrors?.phone && formErrors.phone}
+        <div className="input-lable">
+          <label className="sm:basis-40">First Name</label>
+          <div className="grow">
+            <input type="text" name="customer" required className="input" />
           </div>
         </div>
 
-        <div className="flex flex-col gap-1">
-          <label>Address</label>
-          <div>
-            <input type="text" name="address" required className="input"/>
+        <div className="input-lable">
+          <label className="sm:basis-40">Phone number</label>
+          <div className="grow">
+            <input type="tel" name="phone" required className="input" />
+            {formErrors?.phone && (
+              <div className="my-2 rounded bg-red-500/20 p-1 text-xs">
+                {formErrors.phone}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="input-lable">
+          <label className="sm:basis-40">Address</label>
+          <div className="grow">
+            <input type="text" name="address" required className="input" />
           </div>
         </div>
 
         <div className="flex">
           <input
-            className="mx-2 h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300 border-none"
+            className="mx-2 h-6 w-6 border-none accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300"
             type="checkbox"
             name="priority"
             id="priority"
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority" className="inline-block">
+          <label
+            htmlFor="priority"
+            className="inline-block text-sm sm:text-base"
+          >
             Want to yo give your order priority?
           </label>
         </div>

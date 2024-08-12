@@ -60,7 +60,7 @@ function Order() {
   return (
     <div>
       <div>
-        <h2>Status</h2>
+        <h2 className="">Status</h2>
 
         <div>
           {priority && <span>Priority</span>}
