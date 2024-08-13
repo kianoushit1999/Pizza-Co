@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Button from "../../ui/Button";
 import ButtonLink from "../../ui/ButtonLink";
 import CartItem from "./CartItem";
@@ -27,6 +28,7 @@ const fakeCart = [
 ];
 
 function Cart() {
+  const username = useSelector(state => state.user.username)
   const cart = fakeCart;
 
   return (
@@ -36,7 +38,7 @@ function Cart() {
       </ButtonLink>
 
       <h2 className="py-2 text-center text-xl font-semibold sm:py-4">
-        Your cart, %NAME%
+        Your cart, {username}
       </h2>
 
       <ul className="flex flex-col gap-y-3">
