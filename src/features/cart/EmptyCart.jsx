@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import ButtonLink from '../../ui/ButtonLink';
 
 function EmptyCart() {
   return (
-    <div>
-      <Link to="/menu">&larr; Back to menu</Link>
+    <div className='flex flex-col text-center space-y-4'>
+      <ButtonLink to="/menu">
+        <span className="inline-block">&rarr;</span> Menu
+      </ButtonLink>
 
-      <p>Your cart is still empty. Start adding some pizzas :)</p>
+      <p className='font-semibold uppercase'>Your cart is still empty. Start adding some pizzas :)</p>
     </div>
   );
 }

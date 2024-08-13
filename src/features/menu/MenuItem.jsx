@@ -36,7 +36,7 @@ function MenuItem({ pizza }) {
             <p className="font-medium uppercase text-stone-500">Sold out</p>
           )}
 
-          <Button type="sm" onClick={addItemHandler}>Add to cart</Button>
+          {!soldOut && <Button type="sm" onClick={addItemHandler}>Add to cart</Button>}
         </div>
       </div>
     </li>
