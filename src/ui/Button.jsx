@@ -7,7 +7,9 @@ function Button({ children, disabled, to, type = "primary", onClick }) {
   const className =
     type === "sm"
       ? baseClass + "tracking-tight text-xs px-2 py-1 sm:px-3 sm:py-2"
-      : baseClass + "px-4 py-2 text-sm tracking-wider md:px-6 md:py-3";
+      : type === "circle"
+        ? baseClass + "text-xs rounded-full px-2 py-1"
+        : baseClass + "px-4 py-2 text-sm tracking-wider md:px-6 md:py-3";
 
   if (to)
     return (
@@ -16,10 +18,12 @@ function Button({ children, disabled, to, type = "primary", onClick }) {
       </Link>
     );
 
-  if(onClick) {
-    return <button onClick={onClick} className={className}>
-    {children}
-  </button>
+  if (onClick) {
+    return (
+      <button onClick={onClick} className={className}>
+        {children}
+      </button>
+    );
   }
 
   return (

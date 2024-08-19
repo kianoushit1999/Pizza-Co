@@ -17,18 +17,22 @@ const cartSlice = createSlice({
       });
     },
     increaseItemQuantity(state, action) {
-      const pizza = state.filter((item) => {
-        item.pizzaId === action.payload;
+      const pizza = state.cart.find((item) => {
+        return item.pizzaId === action.payload;
       });
       pizza.quantity++;
       pizza.totalPrice = pizza.quantity * pizza.unitPrice;
     },
     decreaseItemQuantity(state, action) {
-      const pizza = state.filter((item) => {
-        item.pizzaId === action.payload;
+      const pizza = state.cart.find((item) => {
+        return item.pizzaId === action.payload;
       });
       pizza.quantity--;
       pizza.totalPrice = pizza.quantity * pizza.unitPrice;
+
+      if(pizza.quantity === 0) {
+        cartSlice.caseReducers.deleteItem(state,action)
+      }
     },
     clearCart(state) {
       state.cart = [];

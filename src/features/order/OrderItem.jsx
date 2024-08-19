@@ -1,8 +1,7 @@
 import { formatCurrency } from "../../utils/helpers";
 
-function OrderItem({ item, isLoadingIngredients, ingredients }) {
+function OrderItem({ item, ingredients, isLoadingingredients}) {
   const { quantity, name, totalPrice } = item;
-  console.log(isLoadingIngredients, ingredients)
 
   return (
     <li>
@@ -11,6 +10,9 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
           <span>{quantity}&times;</span> {name}
         </p>
         <p className="font-semibold">{formatCurrency(totalPrice)}</p>
+      </div>
+      <div className="text-sm text-stone-400">
+        {isLoadingingredients === "loading" ? "loading" : ingredients.join(", ")}
       </div>
     </li>
   );

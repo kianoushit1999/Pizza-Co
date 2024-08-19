@@ -11,44 +11,21 @@ const isValidPhone = (str) =>
     str,
   );
 
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
-
 function CreateOrder() {
   const username = useSelector(state => state.user.username)
   const [withPriority, setWithPriority] = useState(false);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  const cart = fakeCart;
+  const cart = useSelector(state => state.cart.cart)
   const formErrors = useActionData();
+
+  
 
   return (
     <div className="flex flex-col gap-y-4 text-sm sm:text-base">
       <h2 className="text-center sm:text-xl sm:font-semibold">
         Ready to order? lets go!
       </h2>
-
       <Form method="POST" className="flex flex-col gap-y-3">
         <div className="input-lable">
           <label className="sm:basis-40">First Name</label>
@@ -107,12 +84,13 @@ function CreateOrder() {
 export async function action({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
+  console.log(data)
 
   const errors = {};
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
-    priority: data.priority === "on",
+    priority: data.priority === "true",
   };
 
   if (!isValidPhone(order.phone)) {
